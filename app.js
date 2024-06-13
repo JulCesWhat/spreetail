@@ -1,0 +1,26 @@
+const Add = require("./commands/add");
+const Members = require("./commands/members");
+const Keys = require("./commands/keys");
+const Remove = require("./commands/remove");
+const RemoveAll = require("./commands/removeAll");
+const Clear = require("./commands/clear");
+const KeyExists = require("./commands/keyexists");
+const MemberExists = require("./commands/memberExists");
+const AllMembers = require("./commands/allMembers");
+const Items = require("./commands/items");
+const Help = require("./commands/help");
+const CommandLineApp = require("./commandLineApp");
+
+const app = new CommandLineApp();
+app.registerCommand(new Keys("KEYS", app.store));
+app.registerCommand(new Members("MEMBERS", app.store));
+app.registerCommand(new Add("ADD", app.store));
+app.registerCommand(new Remove("REMOVE", app.store));
+app.registerCommand(new RemoveAll("REMOVEALL", app.store));
+app.registerCommand(new Clear("CLEAR", app.store));
+app.registerCommand(new KeyExists("KEYEXISTS", app.store));
+app.registerCommand(new MemberExists("MEMBEREXISTS", app.store));
+app.registerCommand(new AllMembers("ALLMEMBERS", app.store));
+app.registerCommand(new Items("ITEMS", app.store));
+app.registerCommand(new Help("HELP", app.actions));
+app.start();
